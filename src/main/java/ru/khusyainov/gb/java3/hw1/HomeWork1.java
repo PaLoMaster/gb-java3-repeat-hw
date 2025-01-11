@@ -23,16 +23,16 @@ public class HomeWork1 {
         int maxFruitsCount = 50;
         System.out.println("\n\nПополняем коробки...");
         int fruitsCount = random.nextInt(maxFruitsCount);
-        box1 = new Box<>(fruitsCount, Apple.class);
+        box1 = new Box<>(fruitsCount);
         box1.add(getNewApples(fruitsCount));
         fruitsCount = random.nextInt(maxFruitsCount) * 3;
-        box2 = new Box<>(fruitsCount, Apple.class);
+        box2 = new Box<>(fruitsCount);
         box2.add(getNewApples(fruitsCount));
         fruitsCount = random.nextInt(maxFruitsCount);
-        box3 = new Box<>(fruitsCount, Orange.class);
+        box3 = new Box<>(fruitsCount);
         box3.add(getNewOranges(random.nextInt(maxFruitsCount)));
         fruitsCount = (int) (box2.getSize() / 1.5f);
-        box4 = new Box<>(fruitsCount, Orange.class);
+        box4 = new Box<>(fruitsCount);
         box4.add(getNewOranges(fruitsCount));
         System.out.println(getBoxDescriptions(box1, box2, box3, box4));
         System.out.println("Добавляем яблоки в коробку 4 - невозможно (ошибка компиляции).");
@@ -55,6 +55,11 @@ public class HomeWork1 {
     }
 
     public static <T> void changeElements(T[] array, int firstIndex, int secondIndex) {
+        if (firstIndex < 0 || firstIndex >= array.length || secondIndex < 0 || secondIndex >= array.length) {
+            System.out.println("Выход за границы массива... firstIndex=" + firstIndex +
+                    ", secondIndex=" + secondIndex + ", array.length=" + array.length);
+            return;
+        }
         T temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = temp;

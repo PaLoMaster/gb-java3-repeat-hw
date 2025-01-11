@@ -8,14 +8,16 @@ import java.util.Objects;
 
 public class Box<F extends Fruit> {
     private final ArrayList<F> box;
-    private final String type;
+    private String type;
 
-    public Box(int initialCapacity, Class<F> fruitsClass) {
+    public Box(int initialCapacity) {
         box = new ArrayList<>(initialCapacity);
-        type = fruitsClass.getSimpleName();
     }
 
     public void add(List<F> fruits) {
+        if (type == null && !fruits.isEmpty()) {
+            type = fruits.get(0).getClass().getSimpleName();
+        }
         box.addAll(fruits);
     }
 

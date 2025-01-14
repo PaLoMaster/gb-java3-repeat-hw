@@ -1,0 +1,4 @@
+﻿ конструкция:
+ArrayList<InputStream> al = new ArrayList<>();
+...
+Enumeration<InputStream> e 

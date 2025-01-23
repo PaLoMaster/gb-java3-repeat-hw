@@ -28,11 +28,17 @@ public class Car implements Runnable {
             System.out.println(name + " готовится");
             Thread.sleep(500 + (int) (Math.random() * 800));
             System.out.println(name + " готов");
+            race.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
         for (int i = 0; i < race.getStages().size(); i++) {
             race.getStages().get(i).go(this);
+        }
+        try {
+            race.end(this);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

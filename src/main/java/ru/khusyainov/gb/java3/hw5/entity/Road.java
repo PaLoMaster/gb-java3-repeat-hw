@@ -9,9 +9,9 @@ public class Road extends Stage {
     @Override
     public void go(Car car) {
         try {
-            System.out.println(car.getName() + " начал этап: " + description);
+            System.out.println(car.getName() + " начал этап: " + this);
             Thread.sleep(1000L * length / car.getSpeed());
-            System.out.println(car.getName() + " закончил этап: " + description);
+            System.out.println(car.getName() + " закончил этап: " + this);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

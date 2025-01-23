@@ -4,9 +4,10 @@ public abstract class Stage {
     protected int length;
     protected String description;
 
-    public String getDescription() {
+    public abstract void go(Car car);
+
+    @Override
+    public String toString() {
         return description;
     }
-
-    public abstract void go(Car car);
 }
